@@ -9,25 +9,26 @@ use Illuminate\Database\Eloquent\Model;
  */
 trait QueryFilterTrait
 {
+
     /**
-     * @param             $query
-     * @param QueryFilter $filters
+     * @param                 $query
+     * @param BaseQueryFilter $filters
      *
      * @return \Illuminate\Database\Query\Builder
      */
-    public function scopeFilter($query, QueryFilter $filters)
+    public function scopeFilter($query, BaseQueryFilter $filters)
     {
         return $filters->apply($query);
     }
 
     /**
-     * @param             $query
-     * @param QueryFilter $filters
-     * @param Model       $model
+     * @param                 $query
+     * @param BaseQueryFilter $filters
+     * @param Model           $model
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeFilterModel($query, QueryFilter $filters, Model $model)
+    public function scopeFilterModel($query, BaseQueryFilter $filters, Model $model)
     {
         return $filters->applyModel($query, $model);
     }
